@@ -27,8 +27,7 @@ Route::redirect('/here', '/there'); // Redirect Routes:
 ```
 
 ### Inside Blade template
-##### Building Layouts
- - Layouts Using Components
+###### Building Layouts: Layouts Using Components
 ```blade
 // layout.blade.php
 <html>
