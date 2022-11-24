@@ -36,7 +36,7 @@ Route::redirect('/here', '/there'); // Redirect Routes:
 ### Inside Blade template
 ##### Building Layouts
  - Layouts Using Components
-```php
+```blade
 // layout.blade.php
 <html>
     <head>
@@ -67,39 +67,11 @@ Route::redirect('/here', '/there'); // Redirect Routes:
 </x-layout>
 ```
 
-
-
-
-
-Defining a section
-
-```blade
-@section('content')
-	<h1>Header</h1>
-@endsection
-```
-Rendering a section
-
-```blade
-@yield('content')
-```
-
-Extending a layout
-
-```blade
-@extends('layout')
-```
-
-Function to render a view
-
-```blade
-view('name', ['data' =>‚ 'value'])
-```
-
 Rendering data inside a Blade template
 
 ```blade
-{{ $data }}
+{{ $data }} // Rendering data inside a Blade template
+
 ```
 
 *By default data is escaped using `htmlspecialchars`*
