@@ -69,9 +69,12 @@ Route::redirect('/here', '/there'); // Redirect Routes:
 
 Rendering data inside a Blade template
 
-```blade
+```php
 {{ $data }} // Rendering data inside a Blade template
-
+{!! $data !!} // Rendering unescaped data
+@include('view.name') //Including another view 
+@include('view.name', ['name' => 'John']) // pass data to view
+<a href="{{ route('home') }}">Home</a> 
 ```
 
 *By default data is escaped using `htmlspecialchars`*
