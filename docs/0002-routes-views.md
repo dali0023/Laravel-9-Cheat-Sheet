@@ -23,55 +23,54 @@ Route::get('/user/{id}', [UserController::class, 'index'])->where('id', '[0-9]+'
 
 Route::get('/user/profile', [UserController::class, 'show'])->name('profile'); // Named Route
 
-```
-
-Defining a route that only renders a Blade template
-
-```php
-Route::view('/home'); // Without parameters
-Route::view('/home', ['data' => 'value']); // With parameters
-```
-
-Route with a required parameter
-
-```php
-Route::get('/page/{id}', function ($id) {
-    return view('page', ['page' => $id]);
+// Route Groups
+Route::controller(OrderController::class)->group(function () {
+    Route::get('/orders/{id}', 'show');
+    Route::post('/orders', 'store');
 });
 
-// Using Arrow Functions (Since PHP 7.4)
-Route::get('/page/{id}', fn ($id) => view('page', ['page' => $id]));
-```
-
-Route with an optional parameter
-
-```php
-Route::get('/hello/{name?}', function ($name = 'Guest') {
-    return view('hello', ['name' => $name]);
-});
-
-// Using Arrow Functions (Since PHP 7.4)
-// For optional route parameter {name}, the Closure argument has to have a default value provided
-Route::get('/hello/{name?}', fn ($name = 'Guest') => view('hello', ['name' => $name]));
-```
-
-Named route (to give the route a name, you would chain a `name()` method call)
-
-```php
-Route::view('/home')->name('home');
-```
-
-Generating URI of the named route (generating links)
-
-```php
-// Without parameters
-$url = route('home'); // Generates /home
-
-// With parameters
-$blogPostUrl = route('blog-post', ['id' => 1]); // Generates /blog-post/1
+// php artisan route:list 
+Route::redirect('/here', '/there'); // Redirect Routes:
 ```
 
 ### Inside Blade template
+##### Building Layouts
+ - Layouts Using Components
+```php
+// layout.blade.php
+<html>
+    <head>
+        <title>App Name - @yield('title')</title>
+    </head>
+    <body>
+        <div>
+            @yield('slide')            
+            @yield('content')
+        </div>
+    </body>
+</html>
+
+// child.php
+<x-layout>
+    <x-slot:title>
+        Home Title
+    </x-slot>
+
+     <x-slot:slide>
+        display Slide
+    </x-slot>
+
+    // This is my body content
+    @foreach ($tasks as $task)
+        {{ $task }}
+    @endforeach
+</x-layout>
+```
+
+
+
+
+
 Defining a section
 
 ```blade
