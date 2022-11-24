@@ -1,13 +1,6 @@
-### How routing works (diagram)
-![Routing diagram](./../resources/img/Laravel-Routes.png)
-
-### HTTP verb methods on Route class (diagram)
-![Routing diagram](./../resources/img/Laravel-Route-HTTP-Verbs.png)
 
 ### Inside route definition file (routes/web.php)
-
 Basic Routing:
-
 ```php
 Route::get('/', function () {
     return view('welcome');
@@ -68,39 +61,10 @@ Route::redirect('/here', '/there'); // Redirect Routes:
 ```
 
 Rendering data inside a Blade template
-
 ```php
 {{ $data }} // Rendering data inside a Blade template
 {!! $data !!} // Rendering unescaped data
 @include('view.name') //Including another view 
 @include('view.name', ['name' => 'John']) // pass data to view
 <a href="{{ route('home') }}">Home</a> 
-```
-
-*By default data is escaped using `htmlspecialchars`*
-
-Rendering unescaped data
-
-```blade
-{!! $data !!}
-```
-
-Including another view
-
-```blade
-@include('view.name')
-```
-
-*Included view will inherit parent view data*
-
-Passing additional data to included view
-
-```blade
-@include('view.name', ['name' => 'John'])
-```
-
-Generating a URL inside view
-
-```blade
-<a href="{{ route('home') }}">Home</a>
 ```
