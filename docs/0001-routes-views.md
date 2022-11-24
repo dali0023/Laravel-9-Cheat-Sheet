@@ -35,9 +35,9 @@ Building Layouts: Layouts Using Components
         <title>App Name - @yield('title')</title>
     </head>
     <body>
+        @yield('slide')
         <div>
-            @yield('slide')            
-            @yield('content')
+           {{ $slot }}
         </div>
     </body>
 </html>
