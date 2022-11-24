@@ -6,12 +6,23 @@
 
 ### Inside route definition file (routes/web.php)
 
-Defining a route using closure
+Basic Routing:
 
 ```php
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/user/{id}', [UserController::class, 'index']); // With Required Parameter
+Route::get('/user/{id?}', [UserController::class, 'index']); // With Optional Parameter
+Route::get('/posts/{post}/comments/{comment}', [UserController::class, 'index']);
+
+Route::get('/user', [UserController::class, 'index'])->where('name', '[A-Za-z]+'); // with Regular Expression
+Route::get('/user/{id}', [UserController::class, 'index'])->where('id', '[0-9]+');
+
+Route::get('/user/profile', [UserController::class, 'show'])->name('profile'); // Named Route
+
 ```
 
 Defining a route that only renders a Blade template
