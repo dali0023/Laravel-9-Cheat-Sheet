@@ -5,7 +5,7 @@
 ![](./../resources/img/one-to-one-database.png)
 
 In the example above each `Author` model has one `Profile`.
-Go To Object(##Accessing related object)
+Go To Object(##accessing-related-object)
 
 ## Defining relations
 Create Model with Migration
