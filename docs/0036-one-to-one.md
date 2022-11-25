@@ -25,7 +25,6 @@ Relation on `Profile` model:
 ```
 class Profile extends Model
 {
-    use HasFactory;
     public function author()
     {
         return $this->belongsTo('App\Author');
