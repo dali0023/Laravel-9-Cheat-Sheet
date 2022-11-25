@@ -101,6 +101,7 @@ return view('welcome', compact('phones'));
 ```
 
 <h4 id="login-optional-fields">Accessing related object</h4>
+
 ```php
 Accessing the relation on already loaded model
 $author = Author::find(1);   // Load author model
