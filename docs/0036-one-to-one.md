@@ -55,25 +55,54 @@ Schema::create('profiles', function (Blueprint $table) {
 });
 ```        
 #### Note
-In Profile Table, if we make column according to model name the id `(ex: author_id)`, our relationship will work without problem. But if different name `(ex:author_no_id)`, we must mention it as `foreign_key`.
+In Phone Table, if we make column according to model name the id `(ex: user_id)`, our relationship will work without problem. But if different name `(ex:user_no_id)`, we must mention it as `foreign_key`.
 ```
-class Author extends Model
+class User extends Model
 {
-    public function profile()
+    public function phone()
     {
-        return $this->hasOne('App\Profile', ' user_no_id');
+        return $this->hasOne('App\Phone', ' user_no_id');
+    }
+}
+
+class `Phone` extends Model
+{
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_no_id');
     }
 }
 ```
-class Profile extends Model
+## How to work:
+`Controller:` get all data by `User Model`
+```php
+   $users = User::all();
+   return view('welcome', compact('users'));
+
+// Welcome.blade.php:
+@foreach($users as $user)
+   <tr>
+     <td>{{ $user->name }}</td>
+     <td>{{ $user->phone->name }}</td>
+   </tr>
+@endforeach
 ```
-{
-    public function author()
-    {
-        return $this->belongsTo('App\Author','user_no_id');
-    }
-}
+`Controller`: get all data by `Phone Model`
+```php 
+    $phones = Phone::all();
+    return view('welcome', compact('phones'));
+
+// Welcome.blade.php:
+  @foreach($phones as $phone)
+      <tr>
+         <td>{{ $phone->user->name }}</td>
+         <td>{{ $phone->name }}</td>
+     </tr>
+@endforeach
 ```
+
+
+
 
 ## Accessing related object
 
