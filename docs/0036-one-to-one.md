@@ -101,20 +101,14 @@ return view('welcome', compact('phones'));
 ```
 
 ## Accessing related object
-1) Accessing the relation on already loaded model
-```
+```php
+Accessing the relation on already loaded model
 $author = Author::find(1);   // Load author model
 $profile = $author->profile; // Load the relation (separate query is made)
 
 $profile = Profile::find(1);
 $author = $profile->author;
-```
-2) Loading the model with 1 relation at once
 
-```
-$author = Author::with('profile')->whereKey(1)->first();
-```
-3) Loading the model with many relations at once
-```
-$author = Author::with(['profile', 'account'])->whereKey(1)->get();
+$author = Author::with('profile')->whereKey(1)->first(); //Loading the model with 1 relation at once
+$author = Author::with(['profile', 'account'])->whereKey(1)->get(); //Loading the model with many relations at once
 ```
