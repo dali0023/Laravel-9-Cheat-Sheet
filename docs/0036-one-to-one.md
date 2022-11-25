@@ -4,8 +4,9 @@
 
 ![](./../resources/img/one-to-one-database.png)
 
-In the example above each `Author` model has one `Profile`.
-Go To Object(##accessing-related-object)
+In the example above each `Author` model has one `Profile`. 
+
+[link](#accessing-related-object)
 
 ## Defining relations
 Create Model with Migration
@@ -101,7 +102,7 @@ return view('welcome', compact('phones'));
 @endforeach
 ```
 
-## Accessing related object
+# Accessing related object 
 ```php
 Accessing the relation on already loaded model
 $author = Author::find(1);   // Load author model
