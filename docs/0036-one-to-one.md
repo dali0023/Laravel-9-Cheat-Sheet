@@ -1,23 +1,8 @@
 ## One-to-One relations
 
-An example one-to-one relation diagram:
-
-![Graph](./../resources/img/one-to-one.png)
-
 ## Database design
 
 ![](./../resources/img/one-to-one-database.png)
-
-With one-to-one relation, 1 record from first table (eg. `authors`) has exactly 1 matching record on the other table (eg. `profiles`).
-
-One of the tables needs to have a column that will hold the `id` of the record on the other table.
-
-In our example, we have `authors` and `profiles`. Since it makes no sense for a `Profile` to exist on it's own, the relation column (`author_id`) is put on the `profiles` table.
-
-In short:
-
-* has* - methods on Models that own the relation, no relation column
-* belongs* - methods on Models that are other side of the relation, with relation column
 
 In the example above each `Author` model has one `Profile`.
 
@@ -50,22 +35,20 @@ class Author extends Model
 ## Migrations
 
 `Author` model migration:
-
 ```
 Schema::create('authors', function (Blueprint $table) {
-    $table->increments('id');
+    $table->bigIncrements('id');
     $table->timestamps();
 });
 ```
 
 `Profile` model migration:
-
 ```
 Schema::create('profiles', function (Blueprint $table) {
-    $table->increments('id');
+    $table->bigIncrements('id');
     $table->timestamps();
 
-    $table->unsignedInteger('author_id')->unique();
+    $table->unsignedBigInteger('author_id');
     $table->foreign('author_id')->references('id')->on('authors');
 });
 ```        
