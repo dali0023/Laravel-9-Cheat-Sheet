@@ -5,7 +5,7 @@
 ![](./../resources/img/one-to-one-database.png)
 
 In the example above each `Author` model has one `Profile`.
-
+[see above](#login-optional-fields)
 ## Defining relations
 Create Model with Migration
 `php artisan make:model Author -m`
@@ -100,7 +100,7 @@ return view('welcome', compact('phones'));
 @endforeach
 ```
 
-## Accessing related object
+<h4 id="login-optional-fields">Accessing related object</h4>
 ```php
 Accessing the relation on already loaded model
 $author = Author::find(1);   // Load author model
