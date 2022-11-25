@@ -9,7 +9,6 @@ In the example above each `Author` model has one `Profile`.
 ## Defining relations
 Create Model with Migration
 `php artisan make:model Author -m`
-
 `php artisan make:model Profile -m`
 
 The relation on `Author` model:
@@ -22,7 +21,6 @@ class Author extends Model
     }
 }
 ```
-
 Relation on `Profile` model:
 
 ```
@@ -102,88 +100,21 @@ return view('welcome', compact('phones'));
 @endforeach
 ```
 
-
-
-
 ## Accessing related object
-
 1) Accessing the relation on already loaded model
-
 ```
-use App\Author;
-
 $author = Author::find(1);   // Load author model
 $profile = $author->profile; // Load the relation (separate query is made)
 
 $profile = Profile::find(1);
 $author = $profile->author;
 ```
-
-The `method` name defining a relation is accessed as a `field` with the same name as the `method` name.
-
-This is called `Lazy Loading`. Relations are only loaded from database when they are accessed for the 1st time.
-
 2) Loading the model with 1 relation at once
 
 ```
-use App\Author;
-
 $author = Author::with('profile')->whereKey(1)->first();
 ```
-
-The `Model::find()` is a actually a shortcut [view source](https://github.com/laravel/framework/blob/5.7/src/Illuminate/Database/Eloquent/Builder.php#L323)
-
-That behind the scenes does this:
-
-```
-return $this->whereKey($id)->first($columns);
-```
-
 3) Loading the model with many relations at once
-
 ```
-use App\Author;
-
 $author = Author::with(['profile', 'account'])->whereKey(1)->get();
 ```
-
-## Creating association
-
-```
-$author = new Author();
-$author->save();
-
-$profile = new Profile();
-
-$author->profile()->save($profile);
-```
-
-Notes:
-
-- You can't save `Profile` model before `author_id` column is assigned with the valid `id` of `Author`
-- That means, you can't use `Profile::create()` as it immediately saves the model, unless you pass the `author_id` like `Profile::create(['author_id' => 1]);`
-- The latter can only be used, when `author_id` is on the `$fillable` list of the `Profile` model
-
-```
-$profile = new Profile();
-$author = Author::create();
-
-$profile->author()->associate($author)->save();
-```
-
-Or
-
-```
-$profile = new Profile(); // Create model instance
-$profile->author_id = 1; // Create relationship
-$profile->save(); // Save model
-```
-
-Or
-
-```
-// Create new model with relationship and save
-$profile = Profile::create(['author_id' => 1]);
-```
-
-In the end, creating the association is basically assigning the `author_id` column of the `Profile` model (`profiles` table record).
