@@ -9,6 +9,7 @@ In the example above each `Author` model has one `Profile`.
 ## Defining relations
 Create Model with Migration
 `php artisan make:model Author -m`
+
 `php artisan make:model Profile -m`
 
 The relation on `Author` model:
@@ -76,8 +77,8 @@ class `Phone` extends Model
 ## How to work:
 `Controller:` get all data by `User Model`
 ```php
-   $users = User::all();
-   return view('welcome', compact('users'));
+$users = User::all();
+return view('welcome', compact('users'));
 
 // Welcome.blade.php:
 @foreach($users as $user)
@@ -89,15 +90,15 @@ class `Phone` extends Model
 ```
 `Controller`: get all data by `Phone Model`
 ```php 
-    $phones = Phone::all();
-    return view('welcome', compact('phones'));
+$phones = Phone::all();
+return view('welcome', compact('phones'));
 
 // Welcome.blade.php:
-  @foreach($phones as $phone)
-      <tr>
-         <td>{{ $phone->user->name }}</td>
-         <td>{{ $phone->name }}</td>
-     </tr>
+@foreach($phones as $phone)
+    <tr>
+        <td>{{ $phone->user->name }}</td>
+        <td>{{ $phone->name }}</td>
+    </tr>
 @endforeach
 ```
 
