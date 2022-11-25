@@ -52,6 +52,26 @@ Schema::create('profiles', function (Blueprint $table) {
     $table->foreign('author_id')->references('id')->on('authors');
 });
 ```        
+Note
+Note: In Phone Table, if we make column according to model name the id(ex: user_id), our relationship will work without problem. But if different name(ex:user_no_id), we must mention it as foreign_key.
+```
+class Author extends Model
+{
+    public function profile()
+    {
+        return $this->hasOne('App\Profile', ' user_no_id');
+    }
+}
+```
+class Profile extends Model
+```
+{
+    public function author()
+    {
+        return $this->belongsTo('App\Author','user_no_id');
+    }
+}
+```
 
 ## Accessing related object
 
