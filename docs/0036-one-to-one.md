@@ -14,7 +14,7 @@ Create Model with Migration
 `php artisan make:model Profile -m`
 
 The relation on `Author` model:
-```
+```php
 class Author extends Model
 {
     public function profile()
@@ -25,7 +25,7 @@ class Author extends Model
 ```
 Relation on `Profile` model:
 
-```
+```php
 class Profile extends Model
 {
     public function author()
@@ -38,7 +38,7 @@ class Profile extends Model
 ## Migrations
 
 `Author` model migration:
-```
+```php
 Schema::create('authors', function (Blueprint $table) {
     $table->bigIncrements('id');
     $table->timestamps();
@@ -46,7 +46,7 @@ Schema::create('authors', function (Blueprint $table) {
 ```
 
 `Profile` model migration:
-```
+```php
 Schema::create('profiles', function (Blueprint $table) {
     $table->bigIncrements('id');
     $table->timestamps();
@@ -57,7 +57,7 @@ Schema::create('profiles', function (Blueprint $table) {
 ```        
 #### Note
 In Phone Table, if we make column according to model name the id `(ex: user_id)`, our relationship will work without problem. But if different name `(ex:user_no_id)`, we must mention it as `foreign_key`.
-```
+```php
 class User extends Model
 {
     public function phone()
@@ -117,7 +117,7 @@ $author = Author::with(['profile', 'account'])->whereKey(1)->get(); //Loading th
 
 # One to Many:
 `Comments` model migration:
-```
+```php
 Schema::create('comments', function (Blueprint $table) {
     $table->bigIncrements('id');
     $table->text('content');
