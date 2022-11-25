@@ -7,9 +7,11 @@
 In the example above each `Author` model has one `Profile`.
 
 ## Defining relations
+Create Model with Migration
+`php artisan make:model Author -m`
+`php artisan make:model Profile -m`
 
 The relation on `Author` model:
-
 ```
 class Author extends Model
 {
@@ -52,8 +54,8 @@ Schema::create('profiles', function (Blueprint $table) {
     $table->foreign('author_id')->references('id')->on('authors');
 });
 ```        
-Note
-Note: In Phone Table, if we make column according to model name the id(ex: user_id), our relationship will work without problem. But if different name(ex:user_no_id), we must mention it as foreign_key.
+#### Note
+In Profile Table, if we make column according to model name the id `(ex: author_id)`, our relationship will work without problem. But if different name `(ex:author_no_id)`, we must mention it as `foreign_key`.
 ```
 class Author extends Model
 {
