@@ -8,19 +8,7 @@ In the example above each `Author` model has one `Profile`.
 
 ## Defining relations
 
-The relation on `Profile` model:
-
-```
-class Profile extends Model
-{
-    public function author()
-    {
-        return $this->belongsTo('App\Author');
-    }
-}
-```
-
-Relation on `Author` model:
+The relation on `Author` model:
 
 ```
 class Author extends Model
@@ -28,6 +16,19 @@ class Author extends Model
     public function profile()
     {
         return $this->hasOne('App\Profile');
+    }
+}
+```
+
+Relation on `Profile` model:
+
+```
+class Profile extends Model
+{
+    use HasFactory;
+    public function author()
+    {
+        return $this->belongsTo('App\Author');
     }
 }
 ```
