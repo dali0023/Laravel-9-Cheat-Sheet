@@ -114,3 +114,52 @@ $author = $profile->author;
 $author = Author::with('profile')->whereKey(1)->first(); //Loading the model with 1 relation at once
 $author = Author::with(['profile', 'account'])->whereKey(1)->get(); //Loading the model with many relations at once
 ```
+
+# One to Many:
+`Comments` model migration:
+```
+Schema::create('comments', function (Blueprint $table) {
+    $table->bigIncrements('id');
+    $table->text('content');
+    $table->unsignedBigInteger('blog_post_id')->index();
+    $table->foreign('blog_post_id')->references('id')->on('blog_posts');
+    $table->timestamps();
+});
+```
+`Post` and `Comments` Model:
+```php
+class Post extends Model
+{
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+}
+
+class Comment extends Model
+{
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
+}
+```
+```php
+// Controller:
+$posts = Post::with('comments')->get();
+return view('welcome', compact('posts'));
+
+// View
+@foreach ($posts as $post)
+    <tr>
+        <td>{{ $post->title }}</td>
+        <td>
+         @foreach ($post->comments as $comment)
+               <h6>{{ $comment->messege }}</h6>
+         @endforeach
+        </td>
+    </tr>
+@endforeach
+```
+
+
