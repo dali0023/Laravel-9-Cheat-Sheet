@@ -116,11 +116,14 @@ $author = Author::with(['profile', 'account'])->whereKey(1)->get(); //Loading th
 ```
 
 # One to Many:
+![](./../resources/img/one-to-many-database.png)
+
 `Comments` model migration:
 ```php
 Schema::create('comments', function (Blueprint $table) {
     $table->bigIncrements('id');
     $table->text('content');
+    // Foreign Key
     $table->unsignedBigInteger('blog_post_id')->index();
     $table->foreign('blog_post_id')->references('id')->on('blog_posts');
     $table->timestamps();
