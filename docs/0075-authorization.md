@@ -50,8 +50,9 @@ Enabling Profile Photos: go to `config/jetstream.php`
         Features::accountDeletion(),
     ]
 ```
-By default, we will see uploaded photos in `public/storage` folder, if don't see, run `php artisan storage:link`
-`Note:` lots of features we can eanable from `config/jetstream.php` and `config/fortify.php` and use it without any coading.
+By default, we will see uploaded photos in `public/storage` folder, if don't see, run `php artisan storage:link`.
+
+`Note:` lots of features we can enable from `config/jetstream.php` and `config/fortify.php` and use it without any coading.
 
 
 ## Authorization with [Spatie](https://spatie.be/docs/laravel-permission/v5/installation-laravel)
@@ -167,9 +168,13 @@ public function __construct()
 ```
 
 Assigning Roles: `$user->assignRole('writer')`;
+
 Checking Roles: `$user->hasRole('writer')`;
+
 Has Any User:   `$user->hasAnyRole(['writer', 'reader'])`;
+
 if a user has all of roles:: `$user->hasAllRoles(Role::all())`;
+
 Assigning Direct Permissions To A User: `$role = Role::findByName('writer');`
 
 
