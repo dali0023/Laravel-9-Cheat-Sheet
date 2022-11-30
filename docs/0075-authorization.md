@@ -55,6 +55,28 @@ By default, we will see uploaded photos in `public/storage` folder, if don't see
 `Note:` lots of features we can enable from `config/jetstream.php` and `config/fortify.php` and use it without any coading.
 
 
+## Redirect admin, writer and users to separate page after login
+###### Go to `config/fortify.php` and modify this line:
+```php
+// Change from 
+'home' => RouteServiceProvider::HOME,
+
+// To
+'home' => function(){
+    //if you want to go to a specific route
+    // return route('dashboard');
+    
+    //or if you have a bunch of redirection options
+    if (Auth::user()->hasRole('admin')) {
+        return route('admin.index');
+    }
+    else{
+        return route('dashboard');
+    }
+},
+```
+
+
 ## Authorization with [Spatie](https://spatie.be/docs/laravel-permission/v5/installation-laravel)
 ###### Installation
 - `composer require spatie/laravel-permission`
@@ -93,36 +115,27 @@ use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
-    public function run()
+public function run()
     {
-        // create admin
-        $admin_role = Role::create(['name' => 'admin']);
+        // Role Creating
+        Role::create(['name' => 'admin']);
+        Role::create(['name' => 'writer']);
+        Role::create(['name' => 'user']);
+
+        // Create Admin
         $admin = User::create([
             'name' => 'Admin',
-            'email' => 'admin@admin.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678'),
         ]);
-        $admin->assignRole($admin_role);
+        $admin->assignRole(['writer', 'admin']);
 
-        // create editor's
-        $editor_role = Role::create(['name' => 'editor']);
-        $editor = User::create([
-            'name' => 'editor',
-            'email' => 'editor@admin.com',
+        // create writer's
+        $writer = User::create([
+            'name' => 'writer',
+            'email' => 'writer@gmail.com',
             'password' => bcrypt('12345678'),
-        ]);
-
-        $editor->assignRole($editor_role);
-
-        // create user
-        $user_role = Role::create(['name' => 'user']);
-        $user = User::create([
-            'name' => 'user',
-            'email' => 'user@user.com',
-            'password' => bcrypt('12345678'),
-        ]);
-
-        $user->assignRole($user_role);
+        ])->assignRole('writer');
     }
 }
 ```
@@ -168,17 +181,13 @@ public function __construct()
 ```
 
 Assigning Roles: `$user->assignRole('writer')`;
-
 Checking Roles: `$user->hasRole('writer')`;
-
 Has Any User:   `$user->hasAnyRole(['writer', 'reader'])`;
-
 if a user has all of roles:: `$user->hasAllRoles(Role::all())`;
-
 Assigning Direct Permissions To A User: `$role = Role::findByName('writer');`
 
 
-###### Working with Blade directives
+## Working with Blade directives
 Permissions:
 This package doesn't add any permission-specific Blade directives. Instead, use Laravel's native @can directive to check if auser has a certain permission.
 ```blade
@@ -231,10 +240,6 @@ $all_roles_in_database = Role::all()->pluck('name');
 $users_without_any_roles = User::doesntHave('roles')->get();
 $all_roles_except_a_and_b = Role::whereNotIn('name', ['role A', 'role B'])->get();
 ```
-###### Using Quries:
-
-
-
 
 
 ### Gates

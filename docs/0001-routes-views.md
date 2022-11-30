@@ -67,3 +67,37 @@ Rendering data inside a Blade template
 @include('view.name', ['name' => 'John']) // pass data to view
 <a href="{{ route('home') }}">Home</a> 
 ```
+
+## Create Separate Layout for Admin
+By Default, we have `app.blade.php` layout inside `views/layouts` folder.
+Now we will make a `Admin Layout`
+
+```Step 1:``` Create a `AdminLayout.php` inside `App/View/Components` Folder:
+```php
+<?php
+namespace App\View\Components;
+use Illuminate\View\Component;
+
+class AdminLayout extends Component
+{
+    public function render()
+    {
+        return view('layouts.admin');
+    }
+}
+```
+`Step 2:` Create a `admin.blade.php` inside `views/layouts` Folder and copy and paste code from `admin.blade.php` or admin template
+`Step 3`: Now use `<x-admin-layout>` in child page instead of `<x-layout>` for admin panel
+
+```php
+//child.php
+<x-admin-layout>
+    <x-slot:title>
+        Home Title
+    </x-slot>
+
+    @foreach ($tasks as $task)
+        {{ $task }}
+    @endforeach
+</x-admin-layout>
+```
