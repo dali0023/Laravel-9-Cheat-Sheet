@@ -174,4 +174,4 @@ return view('welcome', compact('posts'));
 @endforeach
 ```
 
-
+# Many to Many
