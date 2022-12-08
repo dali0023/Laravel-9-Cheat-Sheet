@@ -45,27 +45,7 @@ class Profile extends Model
     }
 }
 ```
-
-## Migrations
-
-`Author` model migration:
-```php
-Schema::create('authors', function (Blueprint $table) {
-    $table->bigIncrements('id');
-    $table->timestamps();
-});
-```
-
-`Profile` model migration:
-```php
-Schema::create('profiles', function (Blueprint $table) {
-    $table->bigIncrements('id');
-    $table->timestamps();
-
-    $table->unsignedBigInteger('author_id');
-    $table->foreign('author_id')->references('id')->on('authors');
-});
-```        
+     
 #### Note
 In Phone Table, if we make column according to model name the id `(ex: user_id)`, our relationship will work without problem. But if different name `(ex:user_no_id)`, we must mention it as `foreign_key`.
 ```php
@@ -134,17 +114,6 @@ $author = Author::with(['profile', 'account'])->whereKey(1)->get(); //Loading th
   
 ![](./../resources/img/one-to-many-database.png)
 
-`Comments` model migration:
-```php
-Schema::create('comments', function (Blueprint $table) {
-    $table->bigIncrements('id');
-    $table->text('content');
-    // Foreign Key
-    $table->unsignedBigInteger('blog_post_id')->index();
-    $table->foreign('blog_post_id')->references('id')->on('blog_posts');
-    $table->timestamps();
-});
-```
 `Post` and `Comments` Model:
 ```php
 class Post extends Model
