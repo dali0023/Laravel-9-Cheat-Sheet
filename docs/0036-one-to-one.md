@@ -2,10 +2,12 @@
 - [One To One](#one-to-one)
 - [One To Many](#one-to-many)
 - [Many To Many](#many-to-many)
-- One To Many (Inverse) / Belongs To
 - Has One Of Many
 - Has One Through
 - Has Many Through
+- One To One (Polymorphic)
+- One To Many (Polymorphic)
+- Many To Many (Polymorphic)
 - 
 ## One to One
 
@@ -124,7 +126,11 @@ $author = Author::with('profile')->whereKey(1)->first(); //Loading the model wit
 $author = Author::with(['profile', 'account'])->whereKey(1)->get(); //Loading the model with many relations at once
 ```
 
-# One to Many
+# One to Many 
+- `Author and Post` Relationship: For each blog there is only `a single author` and a single author can have `many post`(one-to-many).
+- `Category and Post` Relationship: One Category` can have `multiple posts`, but a `single post` must have `one category`(one-to-many)
+- `Post and Comment` A `post` can have `many comments` but `a single` comment must have `one post` (one-to-many)
+- `User and Comment` Relation: `A user` can have `many comments` but one comment must have `one User` (one-to-many)
 ![](./../resources/img/one-to-many-database.png)
 
 `Comments` model migration:
