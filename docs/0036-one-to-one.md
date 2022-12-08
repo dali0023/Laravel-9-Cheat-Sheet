@@ -1,4 +1,13 @@
-## One-to-One relations
+# Relationship 
+- [One To One](#one-to-one)
+- [One To Many](#one-to-many)
+- [Many To Many](#many-to-many)
+- One To Many (Inverse) / Belongs To
+- Has One Of Many
+- Has One Through
+- Has Many Through
+- 
+## One to One
 
 ## Database design
 
@@ -115,7 +124,7 @@ $author = Author::with('profile')->whereKey(1)->first(); //Loading the model wit
 $author = Author::with(['profile', 'account'])->whereKey(1)->get(); //Loading the model with many relations at once
 ```
 
-# One to Many:
+# One to Many
 ![](./../resources/img/one-to-many-database.png)
 
 `Comments` model migration:
