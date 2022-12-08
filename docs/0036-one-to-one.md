@@ -127,10 +127,11 @@ $author = Author::with(['profile', 'account'])->whereKey(1)->get(); //Loading th
 ```
 
 # One to Many 
-- `Author and Post` Relationship: For each blog there is only `a single author` and a single author can have `many post`(one-to-many).
-- `Category and Post` Relationship: One Category` can have `multiple posts`, but a `single post` must have `one category`(one-to-many)
+- `Author and Post` Relationship: For each blog there is only `a single author` and a single author can have `many post` (one-to-many).
+- `Category and Post` Relationship: One Category` can have `multiple posts`, but a `single post` must have `one category (one-to-many)
 - `Post and Comment` A `post` can have `many comments` but `a single` comment must have `one post` (one-to-many)
 - `User and Comment` Relation: `A user` can have `many comments` but one comment must have `one User` (one-to-many)
+  
 ![](./../resources/img/one-to-many-database.png)
 
 `Comments` model migration:
@@ -181,3 +182,40 @@ return view('welcome', compact('posts'));
 ```
 
 # Many to Many
+
+- `Post and Tag` Relationship: A post can have many tags and A tag can have many posts (many-to-many)
+  
+```php
+class Post extends Model
+{
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+}
+
+class Tag extends Model
+{
+    public function post()
+    {
+        return $this->belongsToMany(Post::class);
+    }
+}
+```
+```php
+// Controller
+$posts = Post::with('categories')->get();
+return view('welcome', compact('posts'));
+
+// View: 
+@foreach ($posts as $post)
+<tr>
+    <td>{{ $post->title }}</td>
+    <td>
+        @foreach ($post->categories as $category)
+            <h6>{{ $category->name }}</h6>
+        @endforeach
+    </td>
+</tr>
+@endforeach
+
