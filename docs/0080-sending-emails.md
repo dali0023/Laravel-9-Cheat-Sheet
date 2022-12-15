@@ -1,6 +1,6 @@
 #How to send an email- Contact From:
 
-1. Setting your google account:
+# Step-1: Setting your google account:
    - don't find option: `Less secure apps & your Google Account` because google remove it and also auto off from Jun-2022
    - We need to enable 2-Step-Verification
    - Go to `App passwords` button , you will find it just below `2-Step-Verification` button
@@ -9,7 +9,7 @@
         - You will find a input text field, then write there `Laravel Mailer`
         - You will find 16 charecters password like, `knfycdgjcrlliuou` copy it then paste it on `.env` file
 
-2. Set Up `.env` File
+# Step-2: Set Up `.env` File
 ```
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
@@ -22,7 +22,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 ```
 [See Details] (https://www.youtube.com/watch?v=PeK_tD4T3Og)
 
-3. Step 3 - Create Mailable Class:
+# Step-3: Create Mailable Class:
 - `php artisan make:mail ContactMail`
 - Update Mail file: `app->Mail->MailNotify.php`
   
@@ -49,9 +49,9 @@ class ContactMail extends Mailable
             ->view('front.contact-us.email_contact')->with('data', $this->data);
     }
 }
-
-Step 4 - Add Mail Template: `front->contact-us->email_contact.blade.php`
-```blade
+```
+# Step 4 - Add Mail Template: `front->contact-us->email_contact.blade.php`
+```php
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +69,7 @@ Route::get('/contact-us', [ContactController::class, 'index']);
 Route::post('/contact-us/store', [ContactController::class, 'store'])->name('contact.store');
 ```
 
-# Step 6 - 
+# Step 6 - Create Contact from file
 - Go To `front -> contact-us -> contact_us.blade.php`
 ```php
 <form action="{{ route('contact.store') }}" method="post">
@@ -82,7 +82,7 @@ Route::post('/contact-us/store', [ContactController::class, 'store'])->name('con
     </form>
 ```
 
-# Step 6 - Create Controller
+# Step 7 - Create Controller
 - `php artisan make:controller ContactController`
 - Open file `app->Http->Controllers->ContactController.php`
 
@@ -112,10 +112,9 @@ class ContactController extends Controller
             return back()->with('success', 'Sorry! Please try again latter');
         }
     }
-
 }
 ```
-Step 7 - Run Laravel App
+# Finally  - Run Laravel App
 ``` php artisan serve
 
 
