@@ -9,6 +9,8 @@
         - You will find a input text field, then write there `Laravel Mailer`
         - You will find 16 charecters password like, `knfycdgjcrlliuou` copy it then paste it on `.env` file
 
+[See Details] (https://www.youtube.com/watch?v=PeK_tD4T3Og)
+
 # Step-2: Set Up `.env` File
 ```
 MAIL_MAILER=smtp
@@ -20,7 +22,6 @@ MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="nazmulhasan3615@gmail.com"
 MAIL_FROM_NAME="${APP_NAME}"
 ```
-[See Details] (https://www.youtube.com/watch?v=PeK_tD4T3Og)
 
 # Step-3: Create Mailable Class:
 - `php artisan make:mail ContactMail`
