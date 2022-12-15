@@ -153,6 +153,7 @@ return view('welcome', compact('posts'));
 # Many to Many
 
 - `Post and Tag` Relationship: A post can have many tags and A tag can have many posts (many-to-many)
+- `Student and Subject` Relationship: One student can have many subjects and one subject can be taken by many students (many-to-many)
   
 ```php
 class Post extends Model

@@ -1,6 +1,9 @@
 
 ### Inside route definition file (routes/web.php)
 Basic Routing:
+Route Cache Clear both is needed:
+`php artisan cache:clear`
+`php artisan route:cache`
 ```php
 Route::get('/', function () {
     return view('welcome');
