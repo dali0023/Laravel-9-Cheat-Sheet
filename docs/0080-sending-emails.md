@@ -73,7 +73,7 @@ Route::post('/contact-us/store', [ContactController::class, 'store'])->name('con
 # Step 6 - Create Contact from file
 - Go To `front -> contact-us -> contact_us.blade.php`
 ```php
-<form action="{{ route('contact.store') }}" method="post">
+    <form action="{{ route('contact.store') }}" method="post">
         @csrf
         <input type="text" name="name">
         <input type="email" name="email">
