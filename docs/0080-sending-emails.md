@@ -51,7 +51,7 @@ class ContactMail extends Mailable
     }
 }
 ```
-# Step 4 - Add Mail Template: `front->contact-us->email_contact.blade.php`
+# Step 4 - Add Mail Template(email_contact.blade.php)
 ```php
 <!DOCTYPE html>
 <html>
