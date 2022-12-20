@@ -97,6 +97,7 @@ const sendPasswordReset = async (email) => {
 };
 ```
 `Logout function:`
+```js
 const signOut = async () => {
     try {
       await signOut(auth);
@@ -105,3 +106,4 @@ const signOut = async () => {
       return false;
     }
   };
+```
