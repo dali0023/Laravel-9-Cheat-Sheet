@@ -68,7 +68,7 @@ const SignInForm = () => {
 ```
 
 If we want to use form validation, just modity this code inside `handleChange function`
- <code>
+```js
   const [errorMessege, setErrorMessege] = useState(null); 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -82,7 +82,7 @@ If we want to use form validation, just modity this code inside `handleChange fu
 
     setFormFields({ ...formFields, [name]: value });
   };
-</code>
+```
 Also add, 
 ```js
  <input type="email" onChange={handleChange} name="email" value={email} className="form-control" required ></input>
