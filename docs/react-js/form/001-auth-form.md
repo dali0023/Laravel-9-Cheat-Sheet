@@ -1,8 +1,8 @@
 # Working with Login:
 
-###### Step -1:
+###### Step -1: 
 
-- Declare empty object for form fields, easy and short way:
+- Declare empty object for form fields, easy and short way: `sign-in-form.jsx`
 
 ```js
 const defaultFormFields = {
@@ -15,7 +15,7 @@ const SignInForm = () => {
   const { email, password } = formFields;
   const [signIn, setSignIn] = useState(true); // display Sign In or Sign Up page
 
-  //   create a reset function to reset function
+  //   create a reset function to reset fields
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
@@ -66,3 +66,24 @@ const SignInForm = () => {
   );
 };
 ```
+
+If we want to use form validation, just modity this code inside `handleChange function`
+ <code>
+  const [errorMessege, setErrorMessege] = useState(null); 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "displayName") {
+       setErrorMessege("Name Not valid");
+       return;
+     } 
+    else if (name === "email") { } 
+    else if (name === "password") { } 
+    else if (name === "confirmPassword") { }
+
+    setFormFields({ ...formFields, [name]: value });
+  };
+</code>
+Also add, 
+```js
+ <input type="email" onChange={handleChange} name="email" value={email} className="form-control" required ></input>
+ {errorMessege !== null && <span className="text-danger">error</span>}
