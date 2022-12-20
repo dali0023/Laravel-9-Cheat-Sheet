@@ -6,9 +6,9 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./utility/firebase";
 function App() {
-  const [active, setActive] = useState("home");
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();
+  const [active, setActive] = useState("home");  // add active class to menu
+  const [user, setUser] = useState(null); // set user
+  const navigate = useNavigate();   // add navigate funtion to redirect one to another page
 
   const handleSignout = () => {
     signOut(auth).then(() => {
@@ -220,7 +220,7 @@ const SignUpForm = ({ setActive, setUser }) => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((response) => {
         updateProfile(response.user, { displayName }).then(() => {
-          // we must reload user when update user info so than user's info can display after sign up
+          // we must reload user when update user info so that user's info can display after sign up
           auth.currentUser.reload();
           setUser(auth.currentUser);
           setActive("home");
