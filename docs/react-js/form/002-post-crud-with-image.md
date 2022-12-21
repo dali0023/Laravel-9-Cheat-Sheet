@@ -41,6 +41,7 @@ function App() {
 
         <Route path="/posts">
           <Route index element={<Posts />} />
+        //   set condition so that without auth users cannot see the option
           <Route path=":add-post" element={user?.uid ? <AddPost user={user} /> : <Navigate to="/" />}/>
           <Route path="edit-post/:postId" element={user?.uid ? <EditPost user={user} /> : <Navigate to="/" />}/>
         </Route>
