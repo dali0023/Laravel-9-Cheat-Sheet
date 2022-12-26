@@ -10,7 +10,7 @@
 
 ![](./../resources/../../resources/react-img/13.png)
 
-![](./../resources/../../resources/react-img/14.png)
+![](./../resources/../../resources/react-img/144.png)
 
 ![](./../resources/../../resources/react-img/15.png)
 
