@@ -2,7 +2,7 @@
 
  [Go to Firebase](https://console.firebase.google.com/u/0/)
  
-![](./../resources/../../resources/react-img/10.png)
+![](../../../resources/react-img/10.png)
 
 ![](./../resources/../../resources/react-img/11.png)
 
