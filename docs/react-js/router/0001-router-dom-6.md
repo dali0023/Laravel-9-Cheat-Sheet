@@ -129,9 +129,9 @@ const Post = () => {
 <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/posts">
-        <Route index element={<Posts />} />
-        <Route path=":id" element={<Post />} />
-        <Route path="add-post" element={<AddPost />} />
+        <Route index element={<Posts />} /> // posts
+        <Route path=":id" element={<Post />} /> //posts/4
+        <Route path="add-post" element={<AddPost />} /> // posts/add-post
     </Route>
 </Routes>
 ```
