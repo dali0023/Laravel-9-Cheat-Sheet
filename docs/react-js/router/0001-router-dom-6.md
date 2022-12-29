@@ -74,9 +74,9 @@ function App() {
 ```
 
 ###### Advanced Route Definitions:
-
-$\color{red}{5 main techniques:}$
-
+```diff
+- 5 main techniques:
+```
 - Dynamic Routing
 - Routing Priority
 - Nested Routes
