@@ -86,7 +86,7 @@ function App() {
 ###### Dynamic Routing:
 
 - Working with parameter, `/books/1`, `/books/bookName` , and `/books/literally-anything`
-$\color{green}{test}$
+$\color{red}{test}$
 ```js
 import { Route, Routes, Link } from "react-router-dom";
 function App() {
@@ -101,7 +101,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<Posts />} />
-        $${\color{red}<Route path="/posts/:id" element={<Post />} />}$$
+        $\color{red}{<Route path="/posts/:id" element={<Post />} />}$
       </Routes>
     </>
   );
