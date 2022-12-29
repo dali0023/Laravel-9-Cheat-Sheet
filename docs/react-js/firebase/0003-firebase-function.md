@@ -46,6 +46,7 @@ exports.addAdminRole = functions.https.onCall((data, context) => {
 # Deploy functions to a production environment:
 
 - firebase deploy --only functions
+###### all time run the command if we change anything inside index.js
 
 # Go to firestore project and then check inside functions
 
