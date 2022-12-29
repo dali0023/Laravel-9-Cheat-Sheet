@@ -101,7 +101,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<Posts />} />
-        $\color{red}{<Route path="/posts/:id" element={<Post />} />}$
+        **<Route path="/posts/:id" element={<Post />} />**
       </Routes>
     </>
   );
