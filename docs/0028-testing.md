@@ -54,6 +54,7 @@ To clear configuration cache. Read more about [configuration cache](https://lara
 To run tests
 
 `./vendor/bin/phpunit`
+For Sail in docker: `./vendor/bin/sail test`
 
 #### Writing tests
 
@@ -115,7 +116,7 @@ class PostTest extends TestCase
 
 #### Testing using HTTP requests
 
-You can call your application using HTTP 
+You can call your application using HTTP
 
 ```php
 $response = $this->get('/posts');
@@ -128,4 +129,21 @@ $response->assertSeeText('First post');
 ```
 
 Here is a list of all [possible assertions](https://laravel.com/docs/7.x/http-tests#available-assertions)
+
+#########################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
