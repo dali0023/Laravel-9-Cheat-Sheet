@@ -68,7 +68,7 @@ run from sail in docker: `./vendor/bin/sail test`
           * for use with **Putty** select: **.ppk**
           * create and download key to use for putty
 * **Network settings:** 
-     * Select existing security group: Jenkins_Security_group 
+     * Select existing security group: Jenkins_Security_group (already created)
      * OR Create Security Group: 
         * Network Settings: edit:
         * Create Security group
