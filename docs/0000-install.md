@@ -151,7 +151,10 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 sudo systemctl status jenkins
 ```
-
+#### Configuring Jenkins:
+* Connect to http://<Public IPv4 address from AWS>:8080 from your windows browser. ex: http://3.99.248.102:8080/
+* you will see this page:
+* ![picture alt]([http://via.placeholder.com](https://www.jenkins.io/doc/book/resources/tutorials/AWS/unlock_jenkins.png)/200x150 "Title is optional")
 
 
 
