@@ -179,6 +179,13 @@ sudo systemctl status jenkins
 ![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/jenkins_credentials_provider_aws_credentials.png)
 * Scroll down and enter in the IAM User programmatic access keys with permissions to launch EC2 instances and select Add.
 ![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/add_access_secret_access_keys.png)
+
+#### To get your Access Key ID and Secret Access Key from AWS Account Credentials:
+* Just Watch it: https://www.youtube.com/watch?v=HuE-QhrmE1c
+* https://us-east-1.console.aws.amazon.com/iamv2/home#/users
+* select **Add Users**> User name(any)> Attach policies directly>Select AdministratorAccess>Create User
+* Open the Security credentials tab, and then choose Create access key, and select other>Create access key
+
 * Scroll down to select your region using the drop-down, and select Add for the EC2 Key Pair’s Private Key.
 ![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/configure_cloud_region_private_key.png)
  * Select region: **ca-central-1**
