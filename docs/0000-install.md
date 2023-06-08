@@ -86,13 +86,13 @@ run from sail in docker: `./vendor/bin/sail test`
        * Login as: ec2-user
 
 * **For MobaXterm:**
-   •	Copy Public IPv4 address(ex: 35.182.74.38) from Amazon EC2 Server
-   •	MobaXterm>Session>SSH>
-   •	Remote Host- 35.182.74.38>Select Specify Username- any name(ex: ec2-user)
-   •	Advanced SSh Settings: select Use Private key- upload Key pair file that we download when create EC2 Server.
-   •	Ok
-   •	New linux terminal will open, to go root dir> run: sudo su –
-   •	Pwd to check
+   * Copy Public IPv4 address(ex: 35.182.74.38) from Amazon EC2 Server
+   * MobaXterm>Session>SSH>
+   * Remote Host- 35.182.74.38>Select Specify Username- any name(ex: ec2-user)
+   * Advanced SSh Settings: select Use Private key- upload Key pair file that we download when create EC2 Server.
+   * Ok
+   * New linux terminal will open, to go root dir> run: sudo su –
+   * Pwd to check
 
 
 Amazon changed the install in Linux 2. One no-longer using 'yum'
