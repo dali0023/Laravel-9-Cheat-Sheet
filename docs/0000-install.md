@@ -61,7 +61,7 @@ run from sail in docker: `./vendor/bin/sail test`
 * **Application and OS Images (Amazon Machine Image):** Amazon Linux AWS
 * **Instance type:** select default (any free tier eligible)
 * **Key pair (login):** Create new key pair:
-     * Key pair name (any name ex: aws-webserverkey)
+     * Key pair name (any name ex: aws-web-server-key)
      * Key pair type (RSA)
      * Private key file format: 
           * for use with OpenSSH select: .pem
@@ -74,6 +74,26 @@ run from sail in docker: `./vendor/bin/sail test`
           - [x] Allow HTTPS traffic from the internet, 
           - [x] Allow HTTP traffic from the internet
 * **Launch Instance**
+
+## Install MobaXterm or Putty to connect Amazon Linux Server to local machine.
+* **For Putty:**
+   * Copy Public IPv4 address(ex: 35.182.74.38) from Amazon EC2 Server.
+   * Host Name: IPv4 address and Default port: 22 
+   * In the Category pane, expand ```Connection```, expand ```SSH```, and then select ```Auth```. Complete the following:
+       * select Private key file for Authentication
+           * Select the **.ppk file (aws-web-server-key)** that you generated for your key pair.
+       * then Open
+       * Login as: ec2-user
+
+* **For MobaXterm:**
+   •	Copy Public IPv4 address(ex: 35.182.74.38) from Amazon EC2 Server
+   •	MobaXterm>Session>SSH>
+   •	Remote Host- 35.182.74.38>Select Specify Username- any name(ex: ec2-user)
+   •	Advanced SSh Settings: select Use Private key- upload Key pair file that we download when create EC2 Server.
+   •	Ok
+   •	New linux terminal will open, to go root dir> run: sudo su –
+   •	Pwd to check
+
 
 Amazon changed the install in Linux 2. One no-longer using 'yum'
 See: https://aws.amazon.com/amazon-linux-2/release-notes/
