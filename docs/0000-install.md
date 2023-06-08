@@ -94,16 +94,21 @@ run from sail in docker: `./vendor/bin/sail test`
    * New linux terminal will open, to go root dir> run: sudo su –
    * Pwd to check
 
-
-Amazon changed the install in Linux 2. One no-longer using 'yum'
-See: https://aws.amazon.com/amazon-linux-2/release-notes/
-
-## Docker CE Install
-
+## Docker Install on Amazon Linux
+* **Install Docker**
 ```sh
-sudo amazon-linux-extras install docker
+sudo yum update -y
+sudo yum -y install docker
+```
+* **Start Docker**
+```sh 
 sudo service docker start
+```
+* **Access Docker commands in ec2-user user**
+```sh
 sudo usermod -a -G docker ec2-user
+sudo chmod 666 /var/run/docker.sock
+docker version
 ```
 
 Make docker auto-start
