@@ -154,7 +154,7 @@ sudo systemctl status jenkins
 #### Configuring Jenkins:
 [Followed this link](https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/)
 
-* Connect to **http://<Public IPv4 address from AWS>:8080** from your windows browser. ex: http://3.99.248.102:8080/
+* Connect to **http://Public IPv4 address from AWS:8080** from your windows browser. ex: http://3.99.248.102:8080/
 * you will see this page:
 * ![picture alt](https://www.jenkins.io/doc/book/resources/tutorials/AWS/unlock_jenkins.png)
 * On Terminal: ```sudo cat /var/lib/jenkins/secrets/initialAdminPassword```
