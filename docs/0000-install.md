@@ -129,11 +129,9 @@ sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-c
 ```
 ```sh
 sudo chmod +x /usr/local/bin/docker-compose
-```
-```sh
+
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-```
-```sh
+
 docker-compose version
 ```
 
