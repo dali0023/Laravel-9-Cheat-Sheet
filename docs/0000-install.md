@@ -167,6 +167,34 @@ sudo systemctl status jenkins
 * Once the installation is done, select **Back to Dashboard**.
 * Select **Configure a cloud** if there are no existing nodes or clouds from **Dashboard**.
 * ![picture alt](https://www.jenkins.io/doc/book/resources/tutorials/AWS/configure_cloud.png)
+* After navigating to **Manage Jenkins**, select **Configure Nodes and Clouds** 
+* ![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/manage-nodes-and-clouds.png)
+* From here, select Clouds.
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/manage-jenkins-configure-clouds.png)
+* Select Add a new cloud, and select Amazon EC2. A collection of new fields appears.
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/add-amazon-cloud.png)
+* Click Add under Amazon EC2 Credentials:
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/configure_cloud_add_ec2_credentials.png)
+* From the Jenkins Credentials Provider, select AWS Credentials as the Kind.
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/jenkins_credentials_provider_aws_credentials.png)
+* Scroll down and enter in the IAM User programmatic access keys with permissions to launch EC2 instances and select Add.
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/add_access_secret_access_keys.png)
+* Scroll down to select your region using the drop-down, and select Add for the EC2 Key Pair’s Private Key.
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/configure_cloud_region_private_key.png)
+ * Select region: **ca-central-1**
+* From the Jenkins Credentials Provider, select SSH Username with private key as the Kind and set the Username to ec2-user.
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/ssh_username.png)
+* Scroll down and select Enter Directly under Private Key, then select Add.
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/private_key_enter_directly.png)
+
+* Open the private key pair you created in the creating a key pair step and paste here:
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/enter_private_key.png)
+* Scroll down to "Test Connection" and ensure it states "Success". Select Save when done
+![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/test_connection.png)
+
+
+
+
 
 
 
