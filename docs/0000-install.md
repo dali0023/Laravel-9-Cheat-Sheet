@@ -58,19 +58,22 @@ run from sail in docker: `./vendor/bin/sail test`
 
 ## Launch an instance:
 * Name and tags: any name (ex: my-aws-server)
-> Application and OS Images (Amazon Machine Image): Amazon Linux AWS
-> Instance type: select default (any free tier eligible)
-> Key pair (login): Create new key pair:
-     - Key pair name (any name ex: aws-webserverkey)
-     - Key pair type (RSA)
-     - Private key file format: 
-          - for use with OpenSSH select: .pem
-          - for use with Putty select: .ppk
-          - create and download key to use for putty
-> Network settings: 
-     - Create security group
-     - select all : Allow SSH traffic from, Allow HTTPS traffic from the internet, Allow HTTP traffic from the internet
-> Launch Instance
+* Application and OS Images (Amazon Machine Image): Amazon Linux AWS
+* Instance type: select default (any free tier eligible)
+* Key pair (login): Create new key pair:
+     * Key pair name (any name ex: aws-webserverkey)
+     * Key pair type (RSA)
+     * Private key file format: 
+          * for use with OpenSSH select: .pem
+          * for use with Putty select: .ppk
+          * create and download key to use for putty
+* Network settings: 
+     * Create security group
+     * select all : 
+          - [ ] Allow SSH traffic from, 
+          - [ ] Allow HTTPS traffic from the internet, 
+          - [ ] Allow HTTP traffic from the internet
+* Launch Instance
 
 Amazon changed the install in Linux 2. One no-longer using 'yum'
 See: https://aws.amazon.com/amazon-linux-2/release-notes/
