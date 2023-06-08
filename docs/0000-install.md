@@ -152,10 +152,19 @@ sudo systemctl start jenkins
 sudo systemctl status jenkins
 ```
 #### Configuring Jenkins:
-* Connect to http://<Public IPv4 address from AWS>:8080 from your windows browser. ex: http://3.99.248.102:8080/
+* Connect to **http://<Public IPv4 address from AWS>:8080** from your windows browser. ex: http://3.99.248.102:8080/
 * you will see this page:
 * ![picture alt](https://www.jenkins.io/doc/book/resources/tutorials/AWS/unlock_jenkins.png)
-
+* On Terminal: ```sudo cat /var/lib/jenkins/secrets/initialAdminPassword```
+* you will get a password and paste it on the page
+* Click **Install suggested plugins**.
+* Once the installation is complete, the Create First Admin User will open. Enter your information, and then select Save and Continue.
+  * username: admin
+  * password: BR0455815
+* On the left-hand side, select **Manage Jenkins**, and then select **Manage Plugins**.
+* Select the **Available tab**, and then enter **Amazon EC2 plugin** at the top right.
+* **Select the checkbox next to Amazon EC2 plugin**, and then select **Install without restart**.
+* Once the installation is done, select **Back to Dashboard**.
 
 
 
