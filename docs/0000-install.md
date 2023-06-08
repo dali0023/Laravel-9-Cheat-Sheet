@@ -56,7 +56,7 @@ run from sail in docker: `./vendor/bin/sail test`
 ./vendor/bin/sail artisan make:test MyTest --unit
 ```
 
-## Launch an instance:
+## Launch an instance AWS Linux Server:
 * **Name and tags**: any name (ex: my-aws-server)
 * **Application and OS Images (Amazon Machine Image):** Amazon Linux AWS
 * **Instance type:** select default (any free tier eligible)
