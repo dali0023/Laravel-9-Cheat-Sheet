@@ -137,7 +137,7 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose version
 ```
 ## Downloading and installing Jenkins on AWS Linux 2023
-`
+```
 sudo yum update –y
 
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
@@ -150,7 +150,7 @@ sudo yum install jenkins -y
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
 sudo systemctl status jenkins
-`
+```
 
 
 
