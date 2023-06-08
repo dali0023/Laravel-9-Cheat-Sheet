@@ -65,7 +65,7 @@ run from sail in docker: `./vendor/bin/sail test`
      * Key pair type (RSA)
      * Private key file format: 
           * for use with OpenSSH select: .pem
-          * for use with Putty select: .ppk
+          * for use with **Putty** select: .ppk
           * create and download key to use for putty
 * **Network settings:** 
      * Create security group
