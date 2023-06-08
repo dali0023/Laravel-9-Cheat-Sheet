@@ -57,7 +57,7 @@ run from sail in docker: `./vendor/bin/sail test`
 ```
 
 ## Launch an instance:
-> Name and tags: any name (ex: my-aws-server)
+* Name and tags: any name (ex: my-aws-server)
 > Application and OS Images (Amazon Machine Image): Amazon Linux AWS
 > Instance type: select default (any free tier eligible)
 > Key pair (login): Create new key pair:
