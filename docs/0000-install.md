@@ -165,6 +165,8 @@ sudo systemctl status jenkins
 * Select the **Available tab**, and then enter **Amazon EC2 plugin** at the top right.
 * **Select the checkbox next to Amazon EC2 plugin**, and then select **Install without restart**.
 * Once the installation is done, select **Back to Dashboard**.
+* Select **Configure a cloud** if there are no existing nodes or clouds from **Dashboard**.
+* ![picture alt](https://www.jenkins.io/doc/book/resources/tutorials/AWS/configure_cloud.png)
 
 
 
