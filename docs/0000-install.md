@@ -70,9 +70,9 @@ run from sail in docker: `./vendor/bin/sail test`
 * Network settings: 
      * Create security group
      * select all : 
-          - [ ] Allow SSH traffic from, 
-          - [ ] Allow HTTPS traffic from the internet, 
-          - [ ] Allow HTTP traffic from the internet
+          - [x] Allow SSH traffic from, 
+          - [x] Allow HTTPS traffic from the internet, 
+          - [x] Allow HTTP traffic from the internet
 * Launch Instance
 
 Amazon changed the install in Linux 2. One no-longer using 'yum'
