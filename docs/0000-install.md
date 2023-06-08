@@ -68,11 +68,13 @@ run from sail in docker: `./vendor/bin/sail test`
           * for use with **Putty** select: **.ppk**
           * create and download key to use for putty
 * **Network settings:** 
-     * Create security group
-     * select all : 
-          - [x] Allow SSH traffic from, 
-          - [x] Allow HTTPS traffic from the internet, 
-          - [x] Allow HTTP traffic from the internet
+     * Select existing security group: Jenkins_Security_group 
+     * OR Create Security Group: 
+        * Network Settings: edit:
+        * Create Security group
+        * Security Group name- any name 
+        * Security Group desc- any desc. 
+        * And add new rule: port range- 8080, source: 0.0.0.0/0, ::0
 * **Launch Instance**
 
 ## Install MobaXterm or Putty to connect Amazon Linux Server to local machine.
