@@ -182,9 +182,10 @@ sudo systemctl status jenkins
 
 #### To get your Access Key ID and Secret Access Key from AWS Account Credentials:
 * Just Watch it: [Creating an IAM User and Generating Access Key on Amazon Web Services AWS](https://www.youtube.com/watch?v=HuE-QhrmE1c)
-* https://us-east-1.console.aws.amazon.com/iamv2/home#/users
-* select **Add Users**> User name(any)> Attach policies directly>Select AdministratorAccess>Create User
-* Open the Security credentials tab, and then choose Create access key, and select other>Create access key
+* **OR Follow Steps:**
+   * https://us-east-1.console.aws.amazon.com/iamv2/home#/users
+   * select **Add Users**> User name(any)> Attach policies directly>Select AdministratorAccess>Create User
+   * Open the Security credentials tab, and then choose Create access key, and select other>Create access key
 
 * Scroll down to select your region using the drop-down, and select Add for the EC2 Key Pair’s Private Key.
 ![image](https://www.jenkins.io/doc/book/resources/tutorials/AWS/configure_cloud_region_private_key.png)
